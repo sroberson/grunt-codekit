@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           grunt.verbose.ok("Encountered partial " + filepath + " — not compiling it directly.");
           return false;
         }
-               
+
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
           grunt.log.error('Source file "' + filepath + '" not found.');
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 
         grunt.log.debug("Got html: " + html);
         grunt.log.debug("Writing file : " + destination);
-        grunt.file.write(destination, html );
+        grunt.file.write(path.resolve(destination, path.basename(filepath, '.kit') + '.html'), html );
       });
     });
   });
